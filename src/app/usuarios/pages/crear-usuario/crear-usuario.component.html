@@ -1,0 +1,106 @@
+
+
+
+
+<form   class="formRegister shadow"
+        autocomplete="off"
+        [formGroup]="formRegister"
+        (ngSubmit)="submitFormulario($event)">
+
+
+    <!-- campo nombre -->
+    
+    <div>
+        <mat-form-field class="fill">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre" placeholder="">
+            <mat-error *ngIf="formRegister.controls['nombre'].hasError('required')&& formRegister.controls['nombre'].pristine ">
+                El nombre es requerido.
+            </mat-error>
+         </mat-form-field>
+    </div>
+
+
+    <!-- campo apellidos -->
+    <div>
+        <mat-form-field class="fill">
+            <mat-label>Apellidos</mat-label>
+            <input type="text" matInput formControlName="apellidos" placeholder="">
+            <mat-error *ngIf="formRegister.controls['apellidos'].hasError('required') && !formRegister.controls['apellidos'].hasError('pattern')">
+                Por favor introduce tus apellidos
+              </mat-error>
+              <mat-error *ngIf="formRegister.controls['apellidos'].hasError('pattern')">
+                Introduce los dos apellidos
+              </mat-error>
+         </mat-form-field>
+    </div>
+
+
+    <!-- campo Telefono -->
+    <div>
+        <mat-form-field class="fill">
+            <mat-label>Teléfono</mat-label>
+            <input type="tel" matInput formControlName="telefono" placeholder="">
+            <mat-error *ngIf="formRegister.controls['telefono'].hasError('required') && !formRegister.controls['telefono'].hasError('pattern')">
+                Por favor introduce tu Teléfono
+              </mat-error>
+              <mat-error *ngIf="formRegister.controls['telefono'].hasError('pattern')">
+                Introduce un teléfono correcto
+              </mat-error>
+         </mat-form-field>
+    </div>
+
+
+    <!-- campo cp -->
+    <div>
+        <mat-form-field class="fill">
+            <mat-label>Código Postal</mat-label>
+            <input type="text" matInput formControlName="cp" placeholder="">
+            <mat-error *ngIf="formRegister.controls['cp'].hasError('required')">
+                Por favor introduce un código postal
+              </mat-error>
+         </mat-form-field>
+    </div>
+
+
+        <!-- campo password -->
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'"
+                  matInput 
+                  formControlName="password" 
+                  placeholder="">
+                  <mat-error *ngIf="formRegister.controls['password'].hasError('required') && !formRegister.controls['password'].hasError('minlength')">
+                    Por favor introduce una Contraseña
+                  </mat-error>
+                  <mat-error *ngIf="formRegister.controls['password'].hasError('minlength')">
+                    La contraseña debe tener como mínimo 6 dígitos
+                  </mat-error>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+
+        <!-- campo password -->
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide2 ? 'password' : 'text'"
+                  matInput 
+                  formControlName="password2" 
+                  placeholder="">
+                  <mat-error *ngIf="formRegister.controls['password2'].hasError('required') && !formRegister.controls['password2'].hasError('noIguales')">
+                    Por favor introduce una Contraseña
+                  </mat-error>
+                  <mat-error *ngIf="formRegister.controls['password2'].hasError('noIguales')">
+                    Las contraseñas deben ser iguales
+                  </mat-error>
+          <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+            <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">Enviar</button> 
+
+
+

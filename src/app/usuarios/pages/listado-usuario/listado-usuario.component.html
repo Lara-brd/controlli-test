@@ -1,0 +1,68 @@
+
+
+
+<div class="tabla-usuarios">
+  
+  <h2 class="title">Listado de usuarios</h2>
+
+  <table mat-table [dataSource]="dataSource" #tabla class="mat-elevation-z8">
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        <td>holaaa</td>
+      </ng-container>
+    
+      <!-- Apellidos Column -->
+      <ng-container matColumnDef="apellidos">
+        <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+        <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
+      </ng-container>
+    
+      <!-- Teléfono Column -->
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+      </ng-container>
+    
+      <!-- CP Column -->
+      <ng-container matColumnDef="cp">
+        <th mat-header-cell *matHeaderCellDef> C.P. </th>
+        <td mat-cell *matCellDef="let element"> {{element.cp}} </td>
+      </ng-container>
+
+
+      <!-- CP Column -->
+      <ng-container matColumnDef="borrar">
+        <th mat-header-cell *matHeaderCellDef> Borrar Usuario</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-mini-fab 
+                  color="warn"
+                  (click)="deleteUser(element)"
+                  aria-label="Example icon button with a home icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- borrando -->
+
+      <div>
+
+      </div>
+
+
+
+
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+</div>
+
+
+  
+  

@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+
+$light-color:#f1f2f6;
+$main-color:#a80f28;
+
+html, body { height: 100%; background-color:  $light-color; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+.spacer {
+    flex: 1;
+  }
+
+
+////////////////////FLEX LAYOUT
+/// 
+.disp-flex {
+    display: flex;
+}
+
+.just-content-evenly{
+    justify-content:space-evenly;
+}
+
+.align-center {
+    align-items:center;
+}
+
+
+
+///////////////////////////
+
+.shadow {
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.w-100{
+    width:100%;
+}
+
+.w-50{
+    width:50%;
+}
+
+////////////////////////////
+
+.title {
+    color:$main-color;
+}
+
+
+
+
+.mat-mdc-form-field-focus-overlay {
+    background-color: rgb(22, 22, 201);
+}
+
+
+
+
+

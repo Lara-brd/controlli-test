@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+/////////////////////////////////////////////////////////////////
+
+/////ANA SANZ  20/01/2023 ///////////////////////////////////////
+
+Run npm install
+
+TODO:
+*Se puede trabajar más el diseño.
+*Expresiones regulares más restrictivas
+*Tipar el resultado del formulario
+*Pedir confirmación antes de eliminar usuario
+
+
+
+
+
+
