@@ -1,12 +1,28 @@
 
-<nav class="nav disp-flex w-100 shadow">
-    <div class="logo"><img width="250px" src="../../../assets/images/logo.jpg" alt=""></div>
+<!-- <nav class="nav disp-flex w-100 shadow">
+    <div class="logo"><img src="../../../assets/images/logo.png" alt=""></div>
 
-    <div class="menu disp-flex just-content-evenly align-center w-100">
-        <a [routerLink]="['/crear']">Crear Usuario</a>
-        <a [routerLink]="['/listado']">Listado Usuario</a>
-    </div>
+    <ul class="menu disp-flex just-content-evenly align-center w-100">
+        <li>
+            <a [routerLink]="['/crear']">{{crearTitle | uppercase}}</a>
+        </li>
+        <li>
+            <a [routerLink]="['/listado']">{{listadoTitle | uppercase}}</a>
+        </li>
+    </ul>
 
+</nav> -->
 
+<nav class="menu menu-3 disp-flex align-center shadow">
 
-</nav>
+    <div class="logo"><img src="../../../assets/images/logo.png" alt=""></div>
+
+    <ul class="disp-flex">
+        <li>
+            <a [routerLink]="['/crear']" href="#">{{crearTitle | uppercase}}</a>
+        </li>
+        <li>
+            <a [routerLink]="['/listado']" href="#">{{listadoTitle | uppercase}}</a>
+        </li>
+    </ul>
+  </nav>

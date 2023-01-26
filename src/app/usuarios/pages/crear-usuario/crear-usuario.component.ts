@@ -6,19 +6,7 @@ import { UsuariosService } from '../../service/usuarios.service';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
-  styles: [`
-    form{
-      padding:50px;
-      max-width: 1000px;
-      margin:50px auto;
-      margin-right:auto;
-      background-color:white;
-    }
-    mat-form-field{
-      width:100%;
-    }
-  
-  `]
+  styles: [``]
 })
 
 
@@ -34,13 +22,14 @@ export class CrearUsuarioComponent implements OnInit{
   public cpPattern:string = '^\d{5}$'
 
   public formRegister:FormGroup = this.fb.group({
-    nombre:['Marina', [Validators.required]],
-    apellidos:['Gomez Perz', [Validators.required, Validators.pattern(this.nombreApellidoPattern)]],
-    telefono:['321212121',[Validators.required, Validators.pattern(this.telefonoPatter)]],
+    nombre:['', [Validators.required]],
+    apellidos:['', [Validators.required, Validators.pattern(this.nombreApellidoPattern)]],
+    telefono:['',[Validators.required, Validators.pattern(this.telefonoPatter)]],
     cp:['6585',[Validators.required]],
-    password:['123123', [Validators.required, Validators.minLength(6)]],
-    password2:['123123', [Validators.required, Validators.minLength(6)]],
+    password:['', [Validators.required, Validators.minLength(6)]],
+    password2:['', [Validators.required, Validators.minLength(6)]],
   },{validators: [ this.camposIguales('password', 'password2')]} )
+
 
 /////////////////////////////////////////////////////////////////
 
@@ -50,8 +39,6 @@ export class CrearUsuarioComponent implements OnInit{
 
 
 ///////////////////////////////////////////////////////////////////
-
-
 
   ngOnInit(): void {
     this.formRegister.reset()
@@ -78,23 +65,20 @@ export class CrearUsuarioComponent implements OnInit{
 
   //Submit del form Añadiendo usuarios a la lista
   
-  submitFormulario(event:any){
+  submitFormulario(event:any ){
 
     this.formSubmited = true;
 
-
-    //dato que da el usuario
     const inputUser = this.formRegister.controls['telefono'].value;
 
     let found = false;
 
+    if(this.formRegister.invalid){
+      return;
+    }
+
     if(this.usuariosService.listadoUsuarios.length === 0){
-      this.usuariosService.addUsuarios(this.formRegister.value);
-      event.currentTarget.reset();
-      this.formRegister.reset();
-
-
-
+      this.newUser(event)
       
     }else{
       this.usuariosService.listadoUsuarios.forEach(el => {
@@ -108,23 +92,32 @@ export class CrearUsuarioComponent implements OnInit{
           })
         }     
       })
+
       if(!found){
-        this.usuariosService.addUsuarios(this.formRegister.value);
-        event.currentTarget.reset();
-        this.formRegister.reset();
+        this.newUser(event)
       }
 
     }
-
-
-
-
-
-  
-  
-    
-  
     
   }
+
+
+
+  newUser(event:any){
+    this.usuariosService.addUsuarios(this.formRegister.value);
+    event.currentTarget.reset();
+    this.formRegister.reset({
+      nombre:'ANNA',
+      apellidos:'Martinez Ricola',
+      telefono:'999669966',
+      cp:'555',
+      password:'111111',
+      password2:'111111'
+
+    });
+    
+  }
+
+
 
 }

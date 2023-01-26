@@ -4,24 +4,16 @@ import { Component } from '@angular/core';
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styles: [`
-    a {
-      display:block;
-      color:#9c0a24;
-    }
-
-    nav{
-      background-color:white;
-      font-size:1rem;
-    }
-
     img{
       display:block;
     }
-
-
-  
   `]
 })
+
+
 export class MenuComponent {
+
+  crearTitle:string = "Crear usuario";
+  listadoTitle:string = "Listado usuario"
 
 }

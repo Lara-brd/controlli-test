@@ -1,22 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 
 $light-color:#f1f2f6;
-$main-color:#a80f28;
+$main-color:#cb0731;
+$dark-color:#727272;
 
 html, body { height: 100%; background-color:  $light-color; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-a:link, a:visited, a:active {
-    text-decoration:none;
-}
+// a:link, a:visited, a:active {
+//     text-decoration:none;
+// }
 
 .spacer {
     flex: 1;
   }
 
 
+
+
 ////////////////////FLEX LAYOUT
-/// 
+///
+// 
 .disp-flex {
     display: flex;
 }
@@ -37,6 +41,10 @@ a:link, a:visited, a:active {
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.rounded{
+    border-radius:3px;
+}
+
 .w-100{
     width:100%;
 }
@@ -46,12 +54,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 ////////////////////////////
-
-.title {
-    color:$main-color;
-}
-
-
+/// 
 
 
 .mat-mdc-form-field-focus-overlay {
@@ -59,6 +62,190 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
+///////////////////////////////////////form
+/// 
+
+.form-wrapp, .tabla-usuarios{
+    padding:0 10px;
+}
 
 
 
+form{
+    padding:50px;
+    max-width: 1000px;
+    margin:80px auto;
+    background-color:white;
+
+
+    .datos2{
+        border:1px solid $main-color;  
+        background-color:#aaa9b239; 
+        border-radius: 5px;
+        padding:40px 25px 25px 25px;
+        margin:50px auto;
+    }
+
+
+  }
+
+  mat-form-field{
+    width:100%;
+  }
+
+
+
+
+
+
+////////////////////////////////////////DESKTOP STYLES form
+
+@media (min-width: 800px) {
+    form {
+        .grupo1 {
+            display: flex;
+            margin-bottom: 10px;
+
+            .nombre, .apellidos{
+                width:50%;
+            }
+        }
+
+        .grupo2 {
+            display: flex;
+            margin-bottom: 30px;
+            .datos1 {
+                width:50%;
+            }
+
+            .telefono{
+                margin-top: 45px;
+            }
+        }
+        
+
+        .datos2 {
+            width:40%;
+            margin:0 auto;
+        }
+
+        .nombre, .telefono, .cp {
+            margin-right:10px;
+        }
+
+    }
+
+
+}
+
+
+
+
+
+///////////////////////MENU
+
+
+nav {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    padding:20px;
+}
+
+
+
+.menu{
+
+    .logo{
+        padding-top:50px;
+    }
+ 
+    .logo img {
+        height: 65px;
+    }
+
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 30px 0;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        font-weight: 500;
+        justify-content: space-evenly;
+    }
+
+    li{
+        display: inline-block;
+        margin: 0 15px;
+    }
+
+    a{
+        font-size: 0.9rem;
+        text-decoration: none;
+        color:$dark-color;
+        display: block;
+        padding: 4px 0px;
+    }
+
+}
+
+
+
+//////////////////////////////menu desktop
+
+
+@media (min-width: 800px){
+
+    nav{
+        flex-direction: row;
+    }
+
+    .menu{
+
+        .logo img {
+            height: 55px;
+        }
+
+        .logo{
+            padding-top:20px;
+        }
+
+        ul{
+            padding:0;
+        }
+
+        a{
+            position: relative;
+            padding: 4px 50px;
+        }
+
+        a::before{
+            content: "";
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            left: 0;
+            bottom: -34px;
+            background: #fff;
+            transition: 0.5s transform ease;
+            transform: scale3d(0,1,1);
+            transform-origin: 0 50%;
+        }
+
+        a:hover::before{
+            transform: scale3d(1,1,1);
+        }
+
+        a::before{
+            transform-origin: 50% 50%;
+            background: $main-color;
+        }
+
+    }
+
+}
