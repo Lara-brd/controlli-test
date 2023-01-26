@@ -4,8 +4,17 @@ $light-color:#f1f2f6;
 $main-color:#cb0731;
 $dark-color:#727272;
 
-html, body { height: 100%; background-color:  $light-color; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: #283048;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #d1a3ad, #b7bdd1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #d1a3ad, #a6aec7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    height: 100vh ;
+    }
 
 // a:link, a:visited, a:active {
 //     text-decoration:none;
@@ -66,21 +75,21 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 /// 
 
 .form-wrapp, .tabla-usuarios{
-    padding:0 10px;
+    padding:20px 10px;
 }
 
 
 
 form{
-    padding:50px;
+    padding:10px;
     max-width: 1000px;
-    margin:80px auto;
+    margin:50px auto;
     background-color:white;
 
 
     .datos2{
         border:1px solid $main-color;  
-        background-color:#aaa9b239; 
+        background-color:#313131; 
         border-radius: 5px;
         padding:40px 25px 25px 25px;
         margin:50px auto;
@@ -98,7 +107,7 @@ form{
 
 
 
-////////////////////////////////////////DESKTOP STYLES form
+////////////////////////////////////////form DESKTOP STYLES form
 
 @media (min-width: 800px) {
     form {

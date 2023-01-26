@@ -33,7 +33,7 @@
                   Por favor introduce tus apellidos
                 </mat-error>
                 <mat-error *ngIf="formRegister.controls['apellidos'].hasError('pattern')">
-                  Introduce los dos apellidos
+                  Son necesarios los dos apellidos
                 </mat-error>
            </mat-form-field>
       </div>
@@ -76,7 +76,7 @@
 
         <!-- campo password -->
         <mat-form-field appearance="fill">
-          <mat-label>Enter your password</mat-label>
+          <mat-label>Introduce tu contraseña</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'"
                   matInput 
                   formControlName="password" 
@@ -95,7 +95,7 @@
   
         <!-- campo password -->
         <mat-form-field appearance="fill">
-          <mat-label>Repite tu contraseña</mat-label>
+          <mat-label>Confirma tu contraseña</mat-label>
           <input matInput [type]="hide2 ? 'password' : 'text'"
                   matInput 
                   formControlName="password2" 
