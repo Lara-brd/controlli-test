@@ -25,7 +25,7 @@ export class CrearUsuarioComponent implements OnInit{
     nombre:['', [Validators.required]],
     apellidos:['', [Validators.required, Validators.pattern(this.nombreApellidoPattern)]],
     telefono:['',[Validators.required, Validators.pattern(this.telefonoPatter)]],
-    cp:['6585',[Validators.required]],
+    cp:['',[Validators.required]],
     password:['', [Validators.required, Validators.minLength(6)]],
     password2:['', [Validators.required, Validators.minLength(6)]],
   },{validators: [ this.camposIguales('password', 'password2')]} )
@@ -106,16 +106,7 @@ export class CrearUsuarioComponent implements OnInit{
   newUser(event:any){
     this.usuariosService.addUsuarios(this.formRegister.value);
     event.currentTarget.reset();
-    this.formRegister.reset({
-      nombre:'ANNA',
-      apellidos:'Martinez Ricola',
-      telefono:'999669966',
-      cp:'555',
-      password:'111111',
-      password2:'111111'
-
-    });
-    
+    this.formRegister.reset();
   }
 
 
